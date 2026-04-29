@@ -4,17 +4,20 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: eu-west-2
+  httpApi:
+    cors: true   
 
 functions:
   getUsers:
     handler: handler.getUsers
     events:
-      - http:
-          path: users
-          method: get        
+      - httpApi:   
+          path: /users
+          method: GET
+
   deleteUser:
     handler: handler.deleteUser
     events:
-      - http:
-          path: users/{id}
-          method: delete             
+      - httpApi:   
+          path: /users/{id}
+          method: DELETE

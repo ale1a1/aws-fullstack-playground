@@ -3,7 +3,7 @@
 // false → fetches from local NestJS server (localhost:3000)
 const USE_LAMBDA = true;
 
-const LAMBDA_BASE = 'https://2hofv3uwna.execute-api.eu-west-2.amazonaws.com/dev/users';
+const LAMBDA_BASE = 'https://12tcv4g2fl.execute-api.eu-west-2.amazonaws.com/users';
 const BASE = 'http://localhost:3000/users';
 
 // 👉 Single source of truth for base URL

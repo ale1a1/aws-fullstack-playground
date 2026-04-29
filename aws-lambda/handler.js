@@ -19,6 +19,22 @@ exports.getUsers = async (event) => {
   };
 };
 
+
+// replace working method with either one of these methods below to test errors 
+// exports.getUsers = async () => {
+//   console.log("About to crash...");
+//   throw new Error("Test error");
+// };
+
+// exports.getUsers = async () => {
+//   console.log("Running OK");
+
+//   return {
+//     statusCode: 200,
+//     body: "not json"
+//   };
+// };
+
 exports.deleteUser = async (event) => {
   console.log("DELETE event:", event);
 
