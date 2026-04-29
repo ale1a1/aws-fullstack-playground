@@ -11,5 +11,10 @@ functions:
     events:
       - http:
           path: users
-          method: get
-          cors: true
+          method: get        
+  deleteUser:
+    handler: handler.deleteUser
+    events:
+      - http:
+          path: users/{id}
+          method: delete             

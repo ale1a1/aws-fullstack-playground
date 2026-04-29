@@ -18,3 +18,20 @@ exports.getUsers = async (event) => {
     ])
   };
 };
+
+exports.deleteUser = async (event) => {
+  console.log("DELETE event:", event);
+
+  const userId = event.pathParameters?.id;
+
+  return {
+    statusCode: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    },
+    body: JSON.stringify({
+      message: `User ${userId} deleted`
+    })
+  };
+};
