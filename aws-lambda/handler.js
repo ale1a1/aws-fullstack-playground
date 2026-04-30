@@ -2,7 +2,10 @@ const { Client } = require('pg');
 
 // Creates a new DB client per invocation — correct pattern for Lambda
 // (Lambda is stateless; persistent connections can cause issues)
-const createClient = () => new Client({ connectionString: process.env.DB_URL });
+const createClient = () => new Client({
+  connectionString: process.env.DB_URL,
+  ssl: { rejectUnauthorized: false }
+});
 
 const HEADERS = {
   "Content-Type": "application/json",

@@ -10,11 +10,10 @@
 // ============================================================
 const USE_LAMBDA = true;
 
-const LAMBDA_BASE = 'https://12tcv4g2fl.execute-api.eu-west-2.amazonaws.com';
-const BASE = 'http://localhost:3000/users';
+const LAMBDA_BASE = 'https://12tcv4g2fl.execute-api.eu-west-2.amazonaws.com/users';
+const LOCAL_BASE = 'http://localhost:3000/users';
 
-// 👉 Single source of truth for base URL
-const API_BASE = USE_LAMBDA ? LAMBDA_BASE : BASE;
+const API_BASE = USE_LAMBDA ? LAMBDA_BASE : LOCAL_BASE;
 
 export type User = { id: number; name: string; email: string };
 
