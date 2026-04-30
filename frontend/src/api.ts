@@ -8,9 +8,11 @@
 //   Local dev:  no rebuild needed, Vite hot-reloads
 //   Production: npm run build → re-upload dist/ to S3
 // ============================================================
-const USE_LAMBDA = true;
+const USE_LAMBDA = false;
 
-const LAMBDA_BASE = 'https://12tcv4g2fl.execute-api.eu-west-2.amazonaws.com/users';
+// Replace with your API Gateway URL after running: serverless deploy
+// Format: https://YOUR-API-ID.execute-api.YOUR-REGION.amazonaws.com/users
+const LAMBDA_BASE = 'https://YOUR-API-ID.execute-api.YOUR-REGION.amazonaws.com/users';
 const LOCAL_BASE = 'http://localhost:3000/users';
 
 const API_BASE = USE_LAMBDA ? LAMBDA_BASE : LOCAL_BASE;
