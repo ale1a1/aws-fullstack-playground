@@ -7,7 +7,7 @@ provider:
   httpApi:
     cors: true
   environment:
-    DB_URL: ${env:DB_URL, ''}
+    DATABASE_URL: ${env:DB_URL, ''}
     QUEUE_URL:
       Ref: UsersQueue
     SENDER_EMAIL: ${env:SENDER_EMAIL, ''}
