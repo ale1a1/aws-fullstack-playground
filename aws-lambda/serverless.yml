@@ -10,6 +10,7 @@ provider:
     DB_URL: ${env:DB_URL, ''}
     QUEUE_URL:
       Ref: UsersQueue
+    SENDER_EMAIL: ${env:SENDER_EMAIL, ''}
   iam:
     role:
       statements:
@@ -20,6 +21,10 @@ provider:
             Fn::GetAtt:
               - UsersQueue
               - Arn
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+          Resource: "*"
 
 functions:
   getUsers:
