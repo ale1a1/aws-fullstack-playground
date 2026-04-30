@@ -1,9 +1,16 @@
-// Toggle between AWS Lambda and local NestJS API (so far done for getUsers and deleteUser only)
-// true  → fetches from AWS Lambda (deployed endpoints)
-// false → fetches from local NestJS server (localhost:3000)
+// ============================================================
+// FE TOGGLE — control where the frontend sends requests
+// ============================================================
+// true  → calls AWS API Gateway → Lambda → RDS (live)
+// false → calls local NestJS API on localhost:3000
+//
+// To switch: change USE_LAMBDA below.
+//   Local dev:  no rebuild needed, Vite hot-reloads
+//   Production: npm run build → re-upload dist/ to S3
+// ============================================================
 const USE_LAMBDA = true;
 
-const LAMBDA_BASE = 'https://12tcv4g2fl.execute-api.eu-west-2.amazonaws.com/users';
+const LAMBDA_BASE = 'https://12tcv4g2fl.execute-api.eu-west-2.amazonaws.com';
 const BASE = 'http://localhost:3000/users';
 
 // 👉 Single source of truth for base URL

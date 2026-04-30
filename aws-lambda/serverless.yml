@@ -5,7 +5,9 @@ provider:
   runtime: nodejs18.x
   region: eu-west-2
   httpApi:
-    cors: true   
+    cors: true
+  environment:
+    DB_URL: ${env:DB_URL, ''}
 
 functions:
   getUsers:
