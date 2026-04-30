@@ -8,6 +8,18 @@ provider:
     cors: true
   environment:
     DB_URL: ${env:DB_URL, ''}
+    QUEUE_URL:
+      Ref: UsersQueue
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - sqs:SendMessage
+          Resource:
+            Fn::GetAtt:
+              - UsersQueue
+              - Arn
 
 functions:
   getUsers:
@@ -44,3 +56,20 @@ functions:
       - httpApi:
           path: /users/{id}
           method: DELETE
+
+  # Worker Lambda — triggered by SQS, simulates sending emails
+  worker:
+    handler: handler.worker
+    events:
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - UsersQueue
+              - Arn
+
+resources:
+  Resources:
+    UsersQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: users-events-queue
