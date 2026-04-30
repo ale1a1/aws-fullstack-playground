@@ -16,13 +16,6 @@ provider:
       statements:
         - Effect: Allow
           Action:
-            - sqs:SendMessage
-          Resource:
-            Fn::GetAtt:
-              - UsersQueue
-              - Arn
-        - Effect: Allow
-          Action:
             - ses:SendEmail
           Resource: "*"
 
