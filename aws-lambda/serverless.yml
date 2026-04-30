@@ -46,7 +46,7 @@ functions:
     events:
       - httpApi:
           path: /users
-          method: POST
+          method: GET
 
   updateUser:
     handler: handler.updateUser
