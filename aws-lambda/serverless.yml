@@ -13,13 +13,34 @@ functions:
   getUsers:
     handler: handler.getUsers
     events:
-      - httpApi:   
+      - httpApi:
           path: /users
           method: GET
+
+  getUser:
+    handler: handler.getUser
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: GET
+
+  createUser:
+    handler: handler.createUser
+    events:
+      - httpApi:
+          path: /users
+          method: POST
+
+  updateUser:
+    handler: handler.updateUser
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: PUT
 
   deleteUser:
     handler: handler.deleteUser
     events:
-      - httpApi:   
+      - httpApi:
           path: /users/{id}
           method: DELETE
