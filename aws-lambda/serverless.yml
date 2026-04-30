@@ -67,10 +67,7 @@ functions:
     handler: handler.worker
     events:
       - sqs:
-          arn:
-            Fn::GetAtt:
-              - UsersQueue
-              - Arn
+          arn: arn:aws:sqs:eu-west-2:011939521428:users-events-queue-prod
 
 resources:
   Resources:
