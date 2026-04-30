@@ -2,7 +2,7 @@ service: users-api
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
   region: eu-west-2
   httpApi:
     cors: true
