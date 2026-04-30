@@ -15,7 +15,7 @@ export default function AddUser() {
       return;
     }
     try {
-      await createUser(name, email);
+      await createUser(email, name);
       navigate('/users');
     } catch (e) {
       console.error(e);
