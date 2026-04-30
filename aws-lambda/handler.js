@@ -45,7 +45,7 @@ exports.getUsers = async (event) => {
   const client = createClient();
   try {
     await client.connect();
-    const result = await client.query('SELECT * FROM users ORDER BY id');
+    const result = await client.query('SELECT * FROM user ORDER BY id');
     return ok(result.rows);
   } catch (err) {
     console.error("Database error:", err);
