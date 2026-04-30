@@ -4,13 +4,13 @@
   align-items: center;
   justify-content: center;
   background: #f0f4f8;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .card {
   background: white;
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 2rem;
   width: 100%;
   max-width: 440px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -44,6 +44,7 @@
   font-size: 1rem;
   outline: none;
   transition: border-color 0.15s;
+  width: 100%;
 }
 
 .form input:focus {
@@ -71,6 +72,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: opacity 0.1s, transform 0.1s;
+  flex: 1;
 }
 
 .btnPrimary:hover,
@@ -88,4 +90,14 @@
   background: white;
   color: #4f46e5;
   border: 2px solid #4f46e5;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
 }

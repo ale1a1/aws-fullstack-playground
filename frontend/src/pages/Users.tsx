@@ -42,6 +42,8 @@ export default function Users() {
     }
   };
 
+  const cancelEdit = () => { setEditing(null); setName(''); setEmail(''); };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -59,11 +61,12 @@ export default function Users() {
           <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
           <div className={styles.editActions}>
             <button className={styles.btnPrimary} onClick={handleUpdate}>Save</button>
-            <button className={styles.btnSecondary} onClick={() => { setEditing(null); setName(''); setEmail(''); }}>Cancel</button>
+            <button className={styles.btnSecondary} onClick={cancelEdit}>Cancel</button>
           </div>
         </div>
       )}
 
+      {/* Desktop table */}
       <table className={styles.table}>
         <thead>
           <tr>
@@ -87,6 +90,22 @@ export default function Users() {
           ))}
         </tbody>
       </table>
+
+      {/* Mobile cards */}
+      <div className={styles.cardList}>
+        {users.map(u => (
+          <div key={u.id} className={styles.card}>
+            <div className={styles.cardField}>Name</div>
+            <div className={styles.cardValue}>{u.name}</div>
+            <div className={styles.cardField}>Email</div>
+            <div className={styles.cardValue}>{u.email}</div>
+            <div className={styles.cardActions}>
+              <button className={styles.btnEdit} onClick={() => handleEdit(u)}>Edit</button>
+              <button className={styles.btnDelete} onClick={() => handleDelete(u.id)}>Delete</button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
