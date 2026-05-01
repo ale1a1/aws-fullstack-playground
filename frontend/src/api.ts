@@ -10,6 +10,8 @@
 // ============================================================
 const USE_LAMBDA = true;
 
+// Replace with your API Gateway URL after running: serverless deploy
+// Format: https://YOUR-API-ID.execute-api.YOUR-REGION.amazonaws.com/users
 const LAMBDA_BASE = 'https://YOUR-API-ID.execute-api.YOUR-REGION.amazonaws.com/users';
 const LOCAL_BASE = 'http://localhost:3000/users';
 
