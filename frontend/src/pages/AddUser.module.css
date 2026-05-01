@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0f4f8;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
   padding: 1.5rem;
 }
 
@@ -51,10 +51,19 @@
   border-color: #4f46e5;
 }
 
+.form input:disabled {
+  background: #f7fafc;
+  color: #a0aec0;
+}
+
 .error {
   color: #e53e3e;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   margin: 0 0 1rem;
+  padding: 0.6rem 0.85rem;
+  background: #fff5f5;
+  border-radius: 6px;
+  border-left: 3px solid #e53e3e;
 }
 
 .actions {
@@ -63,6 +72,24 @@
   justify-content: flex-end;
 }
 
+/* ── Spinner ─────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinnerInline {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
 .btnPrimary,
 .btnSecondary {
   padding: 0.7rem 1.5rem;
@@ -73,12 +100,22 @@
   cursor: pointer;
   transition: opacity 0.1s, transform 0.1s;
   flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btnPrimary:hover,
-.btnSecondary:hover {
+.btnPrimary:hover:not(:disabled),
+.btnSecondary:hover:not(:disabled) {
   opacity: 0.9;
   transform: translateY(-1px);
+}
+
+.btnPrimary:disabled,
+.btnSecondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .btnPrimary {
